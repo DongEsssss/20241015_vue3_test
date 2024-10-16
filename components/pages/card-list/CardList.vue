@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import { ref } from 'vue';
 import Card from '~/components/section/card/Card.vue';
 import firstImage from '@/assets/image/img1.jpg';
 import secondImage from '@/assets/image/img2.jpg';
@@ -19,46 +20,48 @@ export default {
   components: {
     Card
   },
-  data() {
+  setup() {
+    const cards = ref([
+      {
+        title: 'Lorem Ipsum dolor sit amet,',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,',
+        images: [
+          firstImage,
+          secondImage,
+          thirdImage
+        ],
+        category: 'Lorem ipsum dolor sit amet'
+      },
+      {
+        title: 'Lorem Ipsum dolor sit amet,',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,',
+        images: [
+          secondImage,
+          thirdImage,
+          fourthImage
+        ],
+        category: 'Lorem ipsum dolor sit amet'
+      },
+      {
+        title: 'Lorem Ipsum dolor sit amet,',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,',
+        images: [
+          thirdImage
+        ],
+        category: 'Lorem ipsum dolor sit amet'
+      },
+      {
+        title: 'Lorem Ipsum dolor sit amet,',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,',
+        images: [
+          fourthImage
+        ],
+        category: 'Lorem ipsum dolor sit amet'
+      }
+    ]);
+
     return {
-      cards: [
-        {
-          title: 'Lorem Ipsum dolor sit amet,',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,',
-          images: [
-            firstImage,
-            secondImage,
-            thirdImage
-          ],
-          category: 'Lorem ipsum dolor sit amet'
-        },
-        {
-          title: 'Lorem Ipsum dolor sit amet,',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,',
-          images: [
-            secondImage,
-            thirdImage,
-            fourthImage
-          ],
-          category: 'Lorem ipsum dolor sit amet'
-        },
-        {
-          title: 'Lorem Ipsum dolor sit amet,',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,',
-          images: [
-            thirdImage
-          ],
-          category: 'Lorem ipsum dolor sit amet'
-        },
-        {
-          title: 'Lorem Ipsum dolor sit amet,',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,',
-          images: [
-            fourthImage
-          ],
-          category: 'Lorem ipsum dolor sit amet'
-        }
-      ]
+      cards
     };
   }
 };

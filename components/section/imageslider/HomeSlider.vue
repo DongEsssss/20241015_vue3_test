@@ -15,14 +15,13 @@
             </div>
         </swiper-slide>
 
-        <div class="swiper-button-next text-white p-2 hover:opacity-75">
-        </div>
-        <div class="swiper-button-prev text-white p-2 hover:opacity-75">
-        </div>
+        <div class="swiper-button-next text-white p-2 hover:opacity-75"></div>
+        <div class="swiper-button-prev text-white p-2 hover:opacity-75"></div>
     </swiper>
 </template>
 
 <script>
+import { ref } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -40,37 +39,38 @@ export default {
         SwiperSlide,
     },
     setup() {
-        return {
-            modules: [Navigation, Pagination, Mousewheel, Keyboard, Autoplay],
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
+        const slides = ref([
+            {
+                image: mainImage,
+                title: 'Lorem Ipsum dolor sit amet,',
+                description: 'Lorem ipsum dolor sit amet, consectetur sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
+                alt: '메인 이미지1'
             },
+            {
+                image: secondImage,
+                title: 'Lorem Ipsum dolor sit amet,',
+                description: 'Lorem ipsum dolor sit amet, consectetur sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
+                alt: '메인 이미지2'
+            },
+            {
+                image: thirdImage,
+                title: 'Lorem Ipsum dolor sit amet,',
+                description: 'Lorem ipsum dolor sit amet, consectetur sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
+                alt: '메인 이미지3'
+            }
+        ]);
+
+        const modules = [Navigation, Pagination, Mousewheel, Keyboard, Autoplay];
+        const navigation = {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        };
+
+        return {
+            slides,
+            modules,
+            navigation,
         };
     },
-    data() {
-        return {
-            slides: [
-                {
-                    image: mainImage,
-                    title: 'Lorem Ipsum dolor sit amet,',
-                    description: 'Lorem ipsum dolor sit amet, consectetur sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-                    alt: '메인 이미지1'
-                },
-                {
-                    image: secondImage,
-                    title: 'Lorem Ipsum dolor sit amet,',
-                    description: 'Lorem ipsum dolor sit amet, consectetur sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-                    alt: '메인 이미지2'
-                },
-                {
-                    image: thirdImage,
-                    title: 'Lorem Ipsum dolor sit amet,',
-                    description: 'Lorem ipsum dolor sit amet, consectetur sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-                    alt: '메인 이미지3'
-                }
-            ]
-        };
-    }
 };
 </script>
