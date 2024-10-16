@@ -1,7 +1,7 @@
 <!-- components/CardList.vue -->
 <template>
   <section>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-20">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-0 sm:p-10">
       <Card v-for="(card, index) in cards" :key="index" :title="card.title" :description="card.description"
         :category="card.category" :images="card.images" class="shadow-xl" />
     </div>
